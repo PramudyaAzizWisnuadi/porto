@@ -8,6 +8,7 @@ use App\Models\Profile;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\ProfileResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -48,6 +49,8 @@ class ProfileResource extends Resource
                 Forms\Components\TextInput::make('website')
                     ->url()
                     ->label('Website'),
+                RichEditor::make('aboutme')
+                    ->label('About Me'),
 
             ]);
     }
@@ -62,6 +65,9 @@ class ProfileResource extends Resource
                 Tables\Columns\TextColumn::make('email')->label('Email'),
                 Tables\Columns\TextColumn::make('phone')->label('Phone'),
                 Tables\Columns\TextColumn::make('website')->label('Website'),
+                Tables\Columns\TextColumn::make('aboutme')
+                    ->label('About Me')
+                    ->limit(50),
             ])
             ->filters([
                 //

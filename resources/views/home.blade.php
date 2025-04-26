@@ -96,9 +96,7 @@
                                         <h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-2 py-lg-3"><i
                                                 class="resume-section-heading-icon bi bi-person me-2"></i>About Me</h3>
                                         <div class="resume-summary-desc">
-                                            Summarise your career profile here lorem ipsum dolor sit amet, consectetuer
-                                            adipiscing elit. Aenean commodo ligula eget dolor aenean massa. Cum sociis
-                                            natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                                            {!! str($profile->aboutme)->sanitizeHtml() !!}
                                         </div>
                                     </section><!--//resume-section-->
 
