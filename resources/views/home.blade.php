@@ -107,97 +107,33 @@
                                                 class="resume-section-heading-icon bi bi-briefcase me-2"></i>Work
                                             Experience</h3>
                                         <div class="resume-timeline position-relative">
-                                            <article class="resume-timeline-item position-relative pb-5">
+                                            @foreach ($workExperience as $experience)
+                                                <article class="resume-timeline-item position-relative pb-5">
 
-                                                <div class="resume-timeline-item-header mb-2">
+                                                    <div class="resume-timeline-item-header mb-2">
 
-                                                    <div
-                                                        class="resume-position-meta d-flex justify-content-between mb-1">
-                                                        <div class="resume-position-time">2024 - Present</div>
-                                                        <div class="resume-company-name">Google</div>
-                                                    </div>
-                                                    <h3 class="resume-position-title mb-1">Tech Lead</h3>
+                                                        <div
+                                                            class="resume-position-meta d-flex justify-content-between mb-1">
+                                                            <div class="resume-position-time">
+                                                                {{ optional($experience->start_date)->format('M Y') }}
+                                                                -
+                                                                {{ $experience->end_date ? optional($experience->end_date)->format('M Y') : 'Present' }}
+                                                            </div>
+                                                            <div class="resume-company-name">
+                                                                {{ $experience->company_name }}</div>
+                                                        </div>
+                                                        <h3 class="resume-position-title mb-1">
+                                                            {{ $experience->position }}</h3>
 
-                                                </div><!--//resume-timeline-item-header-->
-                                                <div class="resume-timeline-item-desc">
+                                                    </div><!--//resume-timeline-item-header-->
+                                                    <div class="resume-timeline-item-desc">
+                                                        <div class="resume-timeline-item-desc">
+                                                            {!! str($experience->description)->sanitizeHtml() !!}
+                                                        </div>
+                                                    </div><!--//resume-timeline-item-desc-->
 
-
-                                                    <ul class="resume-timeline-list">
-                                                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                            Aenean porta est diam, et blandit ipsum suscipit facilisis.
-                                                            Praesent nec semper eros. Aliquam quis turpis sed metus
-                                                            mollis luctus vitae rhoncus mi. </li>
-                                                        <li>Vivamus accumsan purus at urna tincidunt convallis. Sed nisi
-                                                            dolor, elementum eget tempus ac, blandit ac mi. Aliquam id
-                                                            tellus ut arcu luctus accumsan in at odio. </li>
-
-                                                        <li>Morbi condimentum, lorem in pharetra mollis, purus justo
-                                                            sollicitudin dolor, tristique vulputate mi odio sit amet
-                                                            ante.</li>
-                                                        <li>Blanditiis praesentium voluptatum deleniti atque corrupti.
-                                                        </li>
-                                                    </ul>
-
-                                                </div><!--//resume-timeline-item-desc-->
-
-                                            </article><!--//resume-timeline-item-->
-
-                                            <article class="resume-timeline-item position-relative pb-5">
-
-                                                <div class="resume-timeline-item-header mb-2">
-
-                                                    <div
-                                                        class="resume-position-meta d-flex justify-content-between mb-1">
-                                                        <div class="resume-position-time">2019 - 2024</div>
-                                                        <div class="resume-company-name">Meta</div>
-                                                    </div>
-                                                    <h3 class="resume-position-title mb-1">Senior App Developer</h3>
-
-                                                </div><!--//resume-timeline-item-header-->
-                                                <div class="resume-timeline-item-desc">
-                                                    <ul class="resume-timeline-list">
-
-                                                        <li>Praesent nec semper eros. Aliquam quis turpis sed metus
-                                                            mollis luctus vitae rhoncus mi. At vero eos et accusamus et
-                                                            iusto odio dignissimos.</li>
-                                                        <li>Proin tempus eu arcu in semper. Quisque gravida, sem ut
-                                                            vehicula ultrices, diam est viverra odio, eget tristique
-                                                            tortor tortor sed neque.</li>
-                                                        <li>Suspendisse quis pharetra elit. Curabitur vitae cursus
-                                                            lacus, et bibendum magna. Donec in orci eu augue posuere
-                                                            mattis ut in turpis.</li>
-                                                    </ul>
-
-                                                </div><!--//resume-timeline-item-desc-->
-
-                                            </article><!--//resume-timeline-item-->
-                                            <article class="resume-timeline-item position-relative">
-
-                                                <div class="resume-timeline-item-header mb-2">
-
-                                                    <div
-                                                        class="resume-position-meta d-flex justify-content-between mb-1">
-                                                        <div class="resume-position-time">2017 - 2019</div>
-                                                        <div class="resume-company-name">Coinbase</div>
-                                                    </div>
-                                                    <h3 class="resume-position-title mb-1">App Developer</h3>
-
-                                                </div><!--//resume-timeline-item-header-->
-                                                <div class="resume-timeline-item-desc">
-                                                    <ul class="resume-timeline-list">
-
-                                                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                        </li>
-                                                        <li>Nulla velit dui, ultrices sit amet arcu eget, sodales
-                                                            lacinia lorem.</li>
-                                                        <li>Quisque semper nisi mauris, non ullamcorper nunc consectetur
-                                                            eget. </li>
-
-                                                    </ul>
-
-                                                </div><!--//resume-timeline-item-desc-->
-
-                                            </article><!--//resume-timeline-item-->
+                                                </article><!--//resume-timeline-item-->
+                                            @endforeach
                                         </div><!--//resume-timeline-->
                                     </section><!--//resume-experience-section-->
                                 </div><!--//col-8-->
